@@ -23,28 +23,25 @@ import {
 
   import colors from "../config/colors";
   import AppText from "../components/AppText/AppText";
+  import AppButton from "../components/AppButton";
 
 function WelcomeScreen(props) {
     return (
         <ImageBackground
             style={styles.background}
             source={require("../assets/sunset.jpg")}
+            blurRadius={7}
         >
+            
             <View style={styles.logocontainer}>
-                <Fontisto name="sourcetree" size={200} color={colors.KUPblue} ></Fontisto>
+                <Fontisto name="sourcetree" size={200} color={colors.KUP2} ></Fontisto>
                 <AppText>The Keeping Up Project</AppText>
             </View>
             <View style={styles.loginbutton}>
-                <Button 
-                    title="Login"
-                    color={colors.KUPblue}
-                ></Button>
+                <AppButton title="Login" onPress={() => console.log("tapped")}></AppButton>
             </View>
             <View style={styles.registerbutton}>
-            <Button 
-                    title="Register"
-                    color={colors.KUPgreen}
-                ></Button>
+                <AppButton title="Register" color="KUP2" textColor="KUP1" onPress={() => console.log("tapped")}></AppButton>
             </View>
             <StatusBar style="auto" />
         </ImageBackground>
@@ -64,8 +61,8 @@ const styles = StyleSheet.create({
     ContainerSafe: {
         flex: 1,
         backgroundColor: '#fff',
-        //alignItems: 'center',
-        //justifyContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
         
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
       },
@@ -77,21 +74,12 @@ const styles = StyleSheet.create({
           
       },
       loginbutton: {
-          width: "100%",
-          height: 70,
-          backgroundColor: colors.KUPgreen,
-          alignItems: "center",
-          justifyContent: "center",
-          borderRadius: 15,
+          width: "80%",
+          margin: 5,
       },
       registerbutton: {
-          width: "100%",
-          height: 70,
-          backgroundColor: colors.KUPblue,
-          alignItems: "center",
-          justifyContent: "center",
-          borderRadius: 15,
-          marginBottom: 30,
+          width: "80%",
+          marginBottom: 60,
       },
       logo: {
           width: 160,

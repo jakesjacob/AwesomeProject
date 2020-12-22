@@ -3,6 +3,6 @@ export default {
     secondary: "#4ecdc4",
     black: "#000",
     white: "#fff",
-    KUPgreen: "#defee2",
-    KUPblue: "#1c0f51",
+    KUP1: "#defee2",
+    KUP2: "#1c0f51",
 }

@@ -11,7 +11,7 @@ function BordersShadows(props) {
 
             <AppText>dtrh</AppText>
         
-            <Fontisto name="sourcetree" size={200} color={colors.KUPblue} ></Fontisto>
+            <Fontisto name="sourcetree" size={200} color={colors.KUP2} ></Fontisto>
 
             <Text style={styles.font}>The Keeping Up Project</Text>
 
@@ -37,10 +37,10 @@ const styles = StyleSheet.create({
     circle: {
         width: 100,
         height: 100,
-        backgroundColor: colors.KUPgreen,
+        backgroundColor: colors.KUP1,
         borderRadius: 50,
         borderWidth: 10,
-        borderColor: colors.KUPblue,
+        borderColor: colors.KUP2,
         padding: 30,
     },
     borderBox: {
@@ -54,11 +54,11 @@ const styles = StyleSheet.create({
     shadowBox: {
         width: 100,
         height: 100,
-        backgroundColor: colors.KUPblue,
+        backgroundColor: colors.KUP2,
         borderRadius: 30,
         borderWidth: 5,
         borderColor: "gold",
-        shadowColor: colors.KUPgreen,
+        shadowColor: colors.KUP1,
         shadowOffset: { width: 20, height: 20},
         shadowOpacity: 10,
         shadowRadius: 1,

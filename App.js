@@ -23,9 +23,16 @@ import TestScreenTwo from './app/screens/TestScreenTwo';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ImageScreen from './app/screens/ImageScreen';
 import BordersShadows from './app/screens/BordersShadows';
+import AppButton from './app/components/AppButton';
+import Card from './app/components/Card';
 
 export default function App() {
-  return <WelcomeScreen />
+  return (
+    <View style={styles.container} >
+      <Card title="Red Jacket" subtitle="£100" image={require("./app/assets/sunset.jpg")} />
+      <Card title="Red Jacket" subtitle="£100" image={require("./app/assets/sunset.jpg")} />
+    </View> 
+  )
 }
 
 
@@ -34,9 +41,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    backgroundColor: '#f8f4f4',
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 100,
+    padding: 20,
   },
 });
