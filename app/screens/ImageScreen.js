@@ -22,6 +22,7 @@ import {
   } from '@react-native-community/hooks';
 
   import colors from "../config/colors";
+  
 
 function ImageScreen(props) {
     return (
