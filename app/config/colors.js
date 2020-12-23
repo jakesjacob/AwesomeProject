@@ -5,4 +5,5 @@ export default {
     white: "#fff",
     KUP1: "#defee2",
     KUP2: "#1c0f51",
+    medium: "#6e6969",
 }

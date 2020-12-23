@@ -18,18 +18,15 @@ import {
   useDimensions,
   useDeviceOrientation
 } from '@react-native-community/hooks';
-import TestScreenOne from './app/screens/TestScreenOne';
-import TestScreenTwo from './app/screens/TestScreenTwo';
-import WelcomeScreen from './app/screens/WelcomeScreen';
-import ImageScreen from './app/screens/ImageScreen';
-import BordersShadows from './app/screens/BordersShadows';
-import AppButton from './app/components/AppButton';
-import CardScreen from './app/screens/CardScreen';
-import Card from './app/components/Card';
-import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
+import Card from '../components/Card';
 
 export default function App() {
-  return <ImageScreen />;
+  return (
+    <View style={styles.container} >
+      <Card title="Red Jacket" subtitle="£100" image={require("../assets/sunset.jpg")} />
+      <Card title="Red Jacket" subtitle="£100" image={require("../assets/sunset.jpg")} />
+    </View> 
+  )
 }
 
 
