@@ -6,4 +6,6 @@ export default {
     KUP1: "#defee2",
     KUP2: "#1c0f51",
     medium: "#6e6969",
+    light: "#f4f4f4",
+    danger: "#ff5252",
 }
