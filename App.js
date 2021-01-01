@@ -37,6 +37,7 @@ import AccountScreen from './app/screens/AccountScreen';
 import ListingsScreen from './app/screens/ListingsScreen';
 import AppTextInput from './app/components/AppTextInput';
 import AppPicker from './app/components/AppPicker';
+import LoginScreen from './app/screens/LoginScreen';
 
 export default function App() {
 
@@ -54,22 +55,7 @@ export default function App() {
   const [category, setCategory] = useState(categories[1]);
 
 
-  return (
-    <Screen>
-      <Switch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} />
-      <AppPicker
-      selectedItem={category}
-      onSelectItem={item => setCategory(item)} 
-      items={categories}
-      placeholder="Category"
-      icon="apps"
-      />
-      <AppTextInput 
-      placeholder="Username" 
-      icon="email"
-      />
-    </Screen>
-  );
+  return <LoginScreen />
 }
 
 
