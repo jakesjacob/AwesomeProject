@@ -62,6 +62,19 @@ function AccounScreen(props) {
                     <Icon name="logout" backgroundColor="#ffe66d" />
                 }
             />
+            <Text> {firstName} </Text>
+            <TextInput
+                secureTextEntry={true}
+                clearButtonMode="always"
+                keyboardType="numeric"
+                maxLength={20} 
+                onChangeText={text => setFirstName(text)}
+                placeholder="First name"
+                style={{
+                borderBottomColor: "#ccc",
+                borderBottomWidth: 1,
+                }}
+            />
         </Screen>
     );
 }
