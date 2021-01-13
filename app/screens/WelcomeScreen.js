@@ -24,6 +24,7 @@ import {
 import colors from "../config/colors";
 import AppText from "../components/AppText/AppText";
 import AppButton from "../components/AppButton";
+import routes from "../navigation/routes";
 
 function WelcomeScreen({ navigation }) {
   return (
@@ -38,14 +39,14 @@ function WelcomeScreen({ navigation }) {
       <View style={styles.loginbutton}>
         <AppButton
           title="Login"
-          onPress={() => navigation.navigate("Login")}
+          onPress={() => navigation.navigate(routes.LOGIN)}
         ></AppButton>
       </View>
       <View style={styles.registerbutton}>
         <AppButton
           title="Register"
           color="KUP2"
-          onPress={() => navigation.navigate("Register")}
+          onPress={() => navigation.navigate(routes.REGISTER)}
         ></AppButton>
       </View>
       <StatusBar style="auto" />

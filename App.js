@@ -49,7 +49,7 @@ import AppText from "./app/components/AppText/AppText";
 import colors from "./app/config/colors";
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import navigationTheme from "./app/navigation/navigationTheme";
-import AppNavigator from "./app/navigation/appNavigator";
+import AppNavigator from "./app/navigation/AppNavigator";
 
 export default function App() {
   return (
