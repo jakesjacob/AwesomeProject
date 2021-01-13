@@ -10,6 +10,8 @@ import {
 import * as Yup from "yup";
 
 import Screen from "../components/Screen";
+import CategoryPickerItem from "../components/CategoryPickerItem";
+import colors from "../config/colors";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -19,10 +21,48 @@ const validationSchema = Yup.object().shape({
 });
 
 const category = [
-  { label: "Furniture", value: 1 },
-  { label: "Wood", value: 2 },
-  { label: "Bricks", value: 3 },
-  { label: "Labour", value: 4 },
+  {
+    label: "Habit Building",
+    value: 1,
+    backgroundColor: colors.HabitBuilding,
+    icon: "floor-lamp",
+  },
+  {
+    label: "Personal Finance",
+    value: 2,
+    backgroundColor: colors.PersonalFinance,
+    icon: "cash-100",
+  },
+  {
+    label: "Mindfulness",
+    value: 3,
+    backgroundColor: colors.Mindfulness,
+    icon: "brain",
+  },
+  {
+    label: "Soft Skills",
+    value: 4,
+    backgroundColor: colors.SoftSkills,
+    icon: "account-multiple",
+  },
+  {
+    label: "Hard Skills",
+    value: 5,
+    backgroundColor: colors.HardSkills,
+    icon: "book-open-page-variant",
+  },
+  {
+    label: "Literacy",
+    value: 6,
+    backgroundColor: colors.Literacy,
+    icon: "script-text-outline",
+  },
+  {
+    label: "Life Philosphy",
+    value: 7,
+    backgroundColor: colors.LifePhilosphy,
+    icon: "thought-bubble-outline",
+  },
 ];
 
 function ListingEditScreen(props) {
@@ -45,11 +85,15 @@ function ListingEditScreen(props) {
           placeholder="Price"
           keyboardType="numeric"
           name="price"
+          width={120}
         />
         <AppFormPicker
           items={category}
           name="category"
           placeholder="Category"
+          width="50%"
+          PickerItemComponent={CategoryPickerItem}
+          numberOfColumns={3}
         />
         <AppFormField
           placeholder="Description"

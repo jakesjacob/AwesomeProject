@@ -8,7 +8,7 @@ function Screen({ children, style, color = "white" }) {
     <SafeAreaView
       style={[styles.screen, style, { backgroundColor: colors[color] }]}
     >
-      <View style={style}>{children}</View>
+      <View style={[styles.view, style]}>{children}</View>
     </SafeAreaView>
   );
 }
@@ -16,6 +16,9 @@ function Screen({ children, style, color = "white" }) {
 const styles = StyleSheet.create({
   screen: {
     paddingTop: Constants.statusBarHeight,
+    flex: 1,
+  },
+  view: {
     flex: 1,
   },
 });
