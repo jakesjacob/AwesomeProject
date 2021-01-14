@@ -9,44 +9,34 @@ import FeedNavigator from "./FeedNavigator";
 import AccountNavigator from "./AccountNavigator";
 import NewListingButton from "./NewListingButton";
 import routes from "../navigation/routes";
+import colors from "../config/colors";
+import HabitsNavigator from "./HabitsNavigator";
+import NuggetsNavigator from "./NuggetsNavigator";
 
 const Tab = createBottomTabNavigator();
 
 const appNavigator = () => (
-  <Tab.Navigator>
+  <Tab.Navigator
+    tabBarOptions={{
+      activeBackgroundColor: colors.KUP2,
+      activeTintColor: colors.white,
+    }}
+  >
     <Tab.Screen
-      name="Feed"
-      component={FeedNavigator}
+      name="Habits"
+      component={HabitsNavigator}
       options={{
         tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="home" color={color} size={size} />
+          <MaterialCommunityIcons name="floor-lamp" color={color} size={size} />
         ),
       }}
     />
     <Tab.Screen
-      name="ListingEdit"
-      component={ListingEditScreen}
-      options={({ navigation }) => ({
-        tabBarButton: () => (
-          <NewListingButton
-            onPress={() => navigation.navigate(routes.LISTING_EDIT)}
-          />
-        ),
-        tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons
-            name="plus-circle"
-            color={color}
-            size={size}
-          />
-        ),
-      })}
-    />
-    <Tab.Screen
-      name="Account"
-      component={AccountNavigator}
+      name="Wisdom"
+      component={NuggetsNavigator}
       options={{
         tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="account" color={color} size={size} />
+          <MaterialCommunityIcons name="brain" color={color} size={size} />
         ),
       }}
     />
