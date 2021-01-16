@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, FlatList, Text } from "react-native";
+import { StyleSheet, View, FlatList, Text, Image } from "react-native";
 import Icon from "../components/Icon";
 import { StatusBar } from "expo-status-bar";
 
@@ -7,6 +7,7 @@ import ListItem from "../components/ListItem";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
 import ListItemSeparator from "../components/ListItemSeparator";
+import routes from "../navigation/routes";
 
 const KUPcategories = [
   {
@@ -16,6 +17,8 @@ const KUPcategories = [
       name: "floor-lamp",
       backgroundColor: colors.HabitBuilding,
     },
+    targetScreen: "NuggetsInfoScreen",
+    color: colors.HabitBuilding,
   },
   {
     title: "Personal Finance",
@@ -24,6 +27,8 @@ const KUPcategories = [
       name: "cash-100",
       backgroundColor: colors.PersonalFinance,
     },
+    targetScreen: "NuggetsInfoScreen",
+    color: colors.PersonalFinance,
   },
   {
     title: "Mindfulness",
@@ -32,6 +37,8 @@ const KUPcategories = [
       name: "brain",
       backgroundColor: colors.Mindfulness,
     },
+    targetScreen: "NuggetsInfoScreen",
+    color: colors.Mindfulness,
   },
   {
     title: "Soft Skills",
@@ -40,6 +47,8 @@ const KUPcategories = [
       name: "account-multiple",
       backgroundColor: colors.SoftSkills,
     },
+    targetScreen: "NuggetsInfoScreen",
+    color: colors.SoftSkills,
   },
   {
     title: "Hard Skills",
@@ -48,6 +57,8 @@ const KUPcategories = [
       name: "book-open-page-variant",
       backgroundColor: colors.HardSkills,
     },
+    targetScreen: "NuggetsInfoScreen",
+    color: colors.HardSkills,
   },
   {
     title: "Literacy",
@@ -56,6 +67,8 @@ const KUPcategories = [
       name: "script-text-outline",
       backgroundColor: colors.Literacy,
     },
+    targetScreen: "NuggetsInfoScreen",
+    color: colors.Literacy,
   },
   {
     title: "Life Philosphy",
@@ -64,6 +77,17 @@ const KUPcategories = [
       name: "thought-bubble-outline",
       backgroundColor: colors.LifePhilosphy,
     },
+    targetScreen: "NuggetsInfoScreen",
+    color: colors.LifePhilosphy,
+  },
+  {
+    title: "Wisdom Settings",
+    value: 8,
+    icon: {
+      name: "microsoft-xbox-controller-menu",
+      backgroundColor: "grey",
+    },
+    targetScreen: "NuggetsSettingsScreen",
   },
 ];
 
@@ -71,17 +95,25 @@ function NuggetsScreen({ navigation }) {
   return (
     <Screen style={styles.screen}>
       <StatusBar style="auto" />
+      <Image
+        source={require("../assets/banner.png")}
+        style={styles.banner}
+        resizeMode="contain"
+      />
       <View style={styles.container}>
         <FlatList
           data={KUPcategories}
-          keyExtractor={(menuItem) => menuItem.title}
+          keyExtractor={(menuItem) => menuItem.title.toString}
           ItemSeparatorComponent={ListItemSeparator}
           renderItem={({ item }) => (
             <ListItem
               title={item.title}
-              onPress={() => navigation.navigate(item.targetScreen)}
+              onPress={() => navigation.navigate(routes.NUGGETS_INFO, item)}
               IconComponent={
-                <Icon backgroundColor={item.icon.backgroundColor} />
+                <Icon
+                  backgroundColor={item.icon.backgroundColor}
+                  name={item.icon.name}
+                />
               }
             />
           )}
@@ -93,10 +125,14 @@ function NuggetsScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 20,
+    marginVertical: -11,
   },
   screen: {
     backgroundColor: colors.KUP1,
+  },
+  banner: {
+    width: "100%",
+    height: 150,
   },
 });
 
