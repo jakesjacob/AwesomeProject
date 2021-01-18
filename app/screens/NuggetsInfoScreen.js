@@ -5,14 +5,14 @@ import colors from "../config/colors";
 import ListItem from "../components/ListItem";
 
 function NuggetsInfoScreen({ route }) {
-  const menuItem = route.params;
+  const KUPcateogryItem = route.params;
 
   return (
     <View>
-      <View style={{ backgroundColor: menuItem.color }}>
+      <View style={{ backgroundColor: KUPcateogryItem.color }}>
         <View style={styles.detailsContainer}>
-          <AppText style={styles.title}>{menuItem.title}</AppText>
-          <AppText style={styles.price}>{menuItem.value}</AppText>
+          <AppText style={styles.title}>{KUPcateogryItem.title}</AppText>
+          <AppText style={styles.price}>{KUPcateogryItem.value}</AppText>
           <View style={styles.userContainer}></View>
         </View>
       </View>

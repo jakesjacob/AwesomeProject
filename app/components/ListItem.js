@@ -13,11 +13,22 @@ function ListItem({
   IconComponent,
   onPress,
   renderRightActions,
+  renderLeftActions,
+  backgroundColor,
+  active,
 }) {
   return (
-    <Swipeable renderRightActions={renderRightActions}>
+    <Swipeable
+      renderRightActions={renderRightActions}
+      renderLeftActions={renderLeftActions}
+    >
       <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
-        <View style={styles.container}>
+        <View
+          style={[
+            styles.container,
+            { backgroundColor: active ? "grey" : "white" },
+          ]}
+        >
           {IconComponent}
           {image && <Image style={styles.image} source={image} />}
           <View style={styles.detailsContainer}>

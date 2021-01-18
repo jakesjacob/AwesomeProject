@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View, FlatList, Text, Image } from "react-native";
 import Icon from "../components/Icon";
 import { StatusBar } from "expo-status-bar";
@@ -8,6 +8,9 @@ import Screen from "../components/Screen";
 import colors from "../config/colors";
 import ListItemSeparator from "../components/ListItemSeparator";
 import routes from "../navigation/routes";
+import ListItemDeletAction from "../components/ListItemDeletAction";
+import ListEnable from "../components/ListEnable";
+import ListDisable from "../components/ListDisable";
 
 const KUPcategories = [
   {
@@ -19,6 +22,7 @@ const KUPcategories = [
     },
     targetScreen: "NuggetsInfoScreen",
     color: colors.HabitBuilding,
+    active: true,
   },
   {
     title: "Personal Finance",
@@ -29,6 +33,7 @@ const KUPcategories = [
     },
     targetScreen: "NuggetsInfoScreen",
     color: colors.PersonalFinance,
+    active: true,
   },
   {
     title: "Mindfulness",
@@ -39,6 +44,7 @@ const KUPcategories = [
     },
     targetScreen: "NuggetsInfoScreen",
     color: colors.Mindfulness,
+    active: true,
   },
   {
     title: "Soft Skills",
@@ -49,6 +55,7 @@ const KUPcategories = [
     },
     targetScreen: "NuggetsInfoScreen",
     color: colors.SoftSkills,
+    active: true,
   },
   {
     title: "Hard Skills",
@@ -59,6 +66,7 @@ const KUPcategories = [
     },
     targetScreen: "NuggetsInfoScreen",
     color: colors.HardSkills,
+    active: true,
   },
   {
     title: "Literacy",
@@ -69,6 +77,7 @@ const KUPcategories = [
     },
     targetScreen: "NuggetsInfoScreen",
     color: colors.Literacy,
+    active: true,
   },
   {
     title: "Life Philosphy",
@@ -79,6 +88,7 @@ const KUPcategories = [
     },
     targetScreen: "NuggetsInfoScreen",
     color: colors.LifePhilosphy,
+    active: true,
   },
   {
     title: "Wisdom Settings",
@@ -88,10 +98,23 @@ const KUPcategories = [
       backgroundColor: "grey",
     },
     targetScreen: "NuggetsSettingsScreen",
+    active: true,
   },
 ];
 
 function NuggetsScreen({ navigation }) {
+  const [active, setActive] = useState(KUPcategories);
+
+  const RightActions = (category) => {
+    const newActive = (category.active = false);
+    setActive(newActive);
+  };
+
+  const LeftActions = (category) => {
+    const newActive = (category.active = true);
+    setActive(newActive);
+  };
+
   return (
     <Screen style={styles.screen}>
       <StatusBar style="auto" />
@@ -103,7 +126,7 @@ function NuggetsScreen({ navigation }) {
       <View style={styles.container}>
         <FlatList
           data={KUPcategories}
-          keyExtractor={(menuItem) => menuItem.title.toString}
+          keyExtractor={(KUPcateogryItem) => KUPcateogryItem.title}
           ItemSeparatorComponent={ListItemSeparator}
           renderItem={({ item }) => (
             <ListItem
@@ -115,6 +138,13 @@ function NuggetsScreen({ navigation }) {
                   name={item.icon.name}
                 />
               }
+              renderRightActions={() => (
+                <ListEnable onPress={() => RightActions(item)} />
+              )}
+              renderLeftActions={() => (
+                <ListDisable onPress={() => LeftActions(item)} />
+              )}
+              active={item.active}
             />
           )}
         />

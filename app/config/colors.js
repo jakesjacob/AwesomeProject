@@ -9,6 +9,7 @@ export default {
   light: "#f4f4f4",
   danger: "#ff5252",
   dark: "#0c0c0c",
+  green: "#41ED16",
 
   HabitBuilding: "#93c25d",
   PersonalFinance: "#fce370",
